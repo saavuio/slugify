@@ -29,20 +29,21 @@ const slugify = (string, options) => {
 		throw new TypeError(`Expected a string, got \`${typeof string}\``);
 	}
 
-	options = {
+	options = Object.assign({
 		separator: '-',
 		lowercase: true,
 		decamelize: true,
-		customReplacements: [],
-		...options
-	};
+		customReplacements: []
+	}, options);
 
 	const separator = escapeStringRegexp(options.separator);
-	const customReplacements = new Map([
-		...builtinOverridableReplacements,
-		...options.customReplacements,
-		...builtinReplacements
-	]);
+	const customReplacements = new Map(
+		[].concat(
+			builtinOverridableReplacements,
+			options.customReplacements,
+			builtinReplacements
+		)
+	);
 
 	string = doCustomReplacements(string, customReplacements);
 	string = deburr(string);
