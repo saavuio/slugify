@@ -1,9 +1,9 @@
 {
-	"name": "@sindresorhus/slugify",
+	"name": "@saavu/slugify",
 	"version": "0.9.1",
 	"description": "Slugify a string",
 	"license": "MIT",
-	"repository": "sindresorhus/slugify",
+	"repository": "saavu/slugify",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
